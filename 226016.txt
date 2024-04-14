@@ -1,0 +1,106 @@
+Softversko inzenerstvo laboratoriska vezba 1 
+
+4. Креирање локален репозиториум команди:
+	$ mkdir SI_2024_lab1_226016  // креирање на директориумот 
+	$ cd SI_2024_lab1_226016  // влез во директориумот
+		кога сме веќе во директориумот, 
+	$ git init  // иницијализиран е Git во директориумот SI_2024_lab1_226016
+
+5. Поврзување на локален со оддалечен репозиториум:
+	$ git remote add origin https://github.com/aleksandra26s/SI_2024_lab1_226016.git
+
+6. Додавање README датотека
+	$ touch README.md
+	$ git add README.md
+	$ git commit -m "Initial commit"
+
+7. Ги преземаме фајловите, ги копираме во директориумот во кој работиме, а кога веќе 
+се во истиот директориум извршуваме:
+	$ git add --all  // од untracked во staged files
+	$ git commit -m "Add starter code"  // commited files
+
+8. Синхронизирање со remote repo:
+	$ git push origin master
+
+9. Отворање на нови гранки, bug1 и bug2:
+	$ git branch bug1  
+	$ git branch bug2
+
+10. Префрлање на гранка bug1:
+	$ git checkout bug1
+
+11. Поправање на текстот во класата SILab1_1 преку nano терминал
+	$ nano SILab1_1.java  
+откако е поправена грешката во текстот фајлот преминува во modified
+	$ git add  SILab1_1.java  // modified но сега е и staged
+	$ git commit -m "Fix wrong condition in filterOddLengthStrings"
+ 
+12. Префрлање на гранка bug2:
+	$ git checkout bug2
+
+13. Поправање на текстот во класата SILab1_2 преку nano терминал
+	$ nano SILab1_2.java  
+откако е поправена грешката во текстот фајлот преминува во modified
+	$ git add  SILab1_2.java  // modified но сега е и staged
+	$ git commit -m "Fix wrong condition in makeBigStringFrom"
+
+14. Враќање на гранка bug1:
+	$ git checkout bug1
+
+15. Додавање на текст во класата SILab1Main преку nano терминал
+	$ nano SILab1Main.java  
+откако е додаден текстот фајлот преминува во modified
+	$ git add  SILab1Main.java  // modified но сега е и staged
+	$ git commit -m "Call method filterOddLengthStrings in main class"
+
+16. Враќање на гранка bug2:
+	$ git checkout bug2
+
+17. Додавање на текст во класата SILab1Main преку nano терминал
+	$ nano SILab1Main.java  
+откако е додаден текстот фајлот преминува во modified
+	$ git add  SILab1Main.java  // modified но сега е и staged
+	$ git commit -m "Call method makeBigStringFrom in main class"
+
+18. Синхронизирање на гранки:
+	$ git push origin master
+	$ git push origin bug1
+	$ git push origin bug2
+
+19. Префрлување на master:
+	$ git checkout master
+
+20. Спојување на bug1 со master
+	$ git merge bug1
+
+21. Синхронизирање на гранки:
+	$ git push origin master
+	$ git push origin bug1
+	$ git push origin bug2
+
+22. Префрлување на master:
+	$ git checkout bug2
+
+23. Правиме rebase спрема master
+	$ git rebase master
+- настанува конфликт, потребно е да се измени кодот за да се реши конфликтот, 
+бидејќи имаме направено промена на исто место (иста линија во истиот код) на две различни гранки
+- го решаваме конфликтот така што бришеме линии во кодот кои што доведуваат до истиот 
+	$ git add SILab1Main.java  // означуваме дека е решен конфликтот 
+	$ git rebase --continue 
+
+24. Префрлување на master:
+	$ git checkout master
+
+25. Спојување на bug2 со master:
+	$ git merge bug2
+
+26. Синхронизирање на сите гранки:
+	$ git push origin master
+	$ git push origin bug1
+	$ git push origin bug2
+
+27. Последното доведува до грешка па затоа правиме
+	$ git push --force origin bug2
+
+27. 
